@@ -1,1 +1,1 @@
-console.log('external-js init');
+console.log('external-js initсссс');
