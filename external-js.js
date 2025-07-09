@@ -1,1 +1,1 @@
-console.log('external-js yes');
+console.log('external-js works');
