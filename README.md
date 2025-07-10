@@ -104,3 +104,39 @@ This will serve your project at:
 ```
 http://localhost:3000/
 ```
+
+---
+
+## ✅ How to include your local or remote scripts and styles
+
+### 🗂️ 1. Example for dynamic JS
+
+Use this pattern to dynamically load your `external-js.js` file with a timestamp:
+
+```html
+<script>
+  const now = new Date();
+  const timestamp = now.getFullYear() + '-' 
+    + String(now.getMonth() + 1).padStart(2, '0') + '-'
+    + String(now.getDate()).padStart(2, '0') + '_'
+    + String(now.getHours()).padStart(2, '0') + '-'
+    + String(now.getMinutes()).padStart(2, '0') + '-'
+    + String(now.getSeconds()).padStart(2, '0');
+
+  // ✅ Add CSS dynamically
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  // ✅ Local development
+  link.href = "http://localhost:3000/css/style.css";
+  // ✅ Production
+  // link.href = 'https://stan-vision-agency.github.io/stanVision/css/style.css?t=' + timestamp;
+  document.head.appendChild(link);
+
+  // ✅ Add JS dynamically
+  const script = document.createElement('script');
+  // ✅ Local development
+  script.src = "http://localhost:3000/js/external-js.js";
+  // ✅ Production
+  // script.src = "https://stan-vision-agency.github.io/stanVision/js/external-js.js?t=" + timestamp;
+  document.body.appendChild(script);
+</script>
