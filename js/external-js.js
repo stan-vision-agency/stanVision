@@ -292,6 +292,7 @@ void main() {
   container.addEventListener("mouseleave", () => {
     program.uniforms.hover.value = 0;
     targetHover = 0;
+    console.log('mouseout');
   });
 
   let rafId;
